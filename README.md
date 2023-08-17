@@ -11,8 +11,12 @@ Install the dependency packages using the environment file `smat_pyenv.yml`.
 
 Generate the relevant files:
 ```
-python -c "from pytracking.evaluation.environment import create_default_local_file; create_default_local_file()"
-python -c "from ltr.admin.environment import create_default_local_file; create_default_local_file()"
+python tracking/create_default_local_file.py --workspace_dir . --data_dir ./data --save_dir ./output
+```
+After running this command, modify the datasets paths by editing these files
+```
+lib/train/admin/local.py  # paths about training
+lib/test/evaluation/local.py  # paths about testing
 ```
 
 ## Training
