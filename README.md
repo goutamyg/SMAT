@@ -3,7 +3,7 @@ The official implementation of **SMAT**
 ![SMAT_block](assets/SMAT_block.png)
 
 ## News
-
+**`17-08-2023`**: The SMAT tracker training and inference code is released
 
 ## Installation
 
