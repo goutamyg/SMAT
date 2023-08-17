@@ -37,7 +37,7 @@ python tracking/train.py --script mobilevitv2_track --config mobilevitv2_256_128
 ```
 python tracking/test.py --tracker_name mobilevitv2_track --tracker_param mobilevitv2_256_128x1_ep300 --dataset lasot
 ```
-* Toggle the `DEVICE` in '--tracker_param' file between `cuda` and `cpu` for GPU and CPU-based inference, respectively  
+* Toggle the `DEVICE` in `--tracker_param` file between `cuda` and `cpu` for GPU and CPU-based inference, respectively  
 * The raw results will be stored under `output/test/` folder
 
 ## Visualization
