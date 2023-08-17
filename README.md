@@ -22,7 +22,8 @@ lib/test/evaluation/local.py  # paths about testing
 ## Training
 
 * Set the path of training datasets in `lib/train/admin/local.py`
-* Place the pretrained model under the `pretrained_models/` folder
+* Place the pretrained backbone model under the `pretrained_models/` folder
+* For data preparation, please refer to [this](https://github.com/botaoye/OSTrack/tree/main) 
 * Run
 ```
 python tracking/train.py --script mobilevitv2_track --config mobilevitv2_256_128x1_ep300 --save_dir ./output --mode single
@@ -35,15 +36,15 @@ python tracking/train.py --script mobilevitv2_track --config mobilevitv2_256_128
 * Place the pretrained tracker model under `output/checkpoints/` folder 
 * Run
 ```
-python tracking/test.py --tracker_name mobilevitv2_track --tracker_param mobilevitv2_256_128x1_ep300 --dataset lasot
+python tracking/test.py --tracker_name mobilevitv2_track --tracker_param mobilevitv2_256_128x1_ep300 --dataset got10k_test/trackingnet/lasot
 ```
-* Toggle the `DEVICE` in `--tracker_param` file between `cuda` and `cpu` for GPU and CPU-based inference, respectively  
+* Toggle `DEVICE` between `cuda` and `cpu` in the `--tracker_param` file for GPU and CPU-based inference, respectively  
 * The raw results will be stored under `output/test/` folder
 
 ## Visualization
 
-
 ## Acknowledgements
-
+* We use the Separable Self-Attention Transformer implementation and the pretrained `MobileViTv2` backbone from [ml-cvnets](https://github.com/apple/ml-cvnets). Thank you!
+* Our training code is built upon [OSTrack](https://github.com/botaoye/OSTrack) and [PyTracking](https://github.com/visionml/pytracking)
 
 ## Citation
