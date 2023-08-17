@@ -1,0 +1,78 @@
+DATA:
+  MAX_SAMPLE_INTERVAL: 200
+  MEAN:
+  - 0.0
+  - 0.0
+  - 0.0
+  SEARCH:
+    CENTER_JITTER: 3
+    FACTOR: 4.0
+    SCALE_JITTER: 0.25
+    SIZE: 256
+    NUMBER: 1
+  STD:
+  - 1.0
+  - 1.0
+  - 1.0
+  TEMPLATE:
+    CENTER_JITTER: 0
+    FACTOR: 2.0
+    SCALE_JITTER: 0
+    SIZE: 128
+  TRAIN:
+    DATASETS_NAME:
+      - LASOT
+      - GOT10K_train_full
+      - COCO17
+      - TRACKINGNET
+    DATASETS_RATIO:
+      - 1
+      - 1
+      - 1
+      - 1
+    SAMPLE_PER_EPOCH: 60000
+  VAL:
+    DATASETS_NAME:
+    - GOT10K_official_val
+    DATASETS_RATIO:
+    - 1
+    SAMPLE_PER_EPOCH: 10000
+MODEL:
+  PRETRAIN_FILE: "mobilevitv2-1.0.pt"
+  EXTRA_MERGER: False
+  RETURN_INTER: False
+  BACKBONE:
+    TYPE: mobilevitv2-1.0
+    STRIDE: 16
+    MIXED_ATTN: True
+  NECK:
+    TYPE: BN_PWXCORR
+    NUM_CHANNS_POST_XCORR: 64
+  HEAD:
+    TYPE: CENTER_SSAT
+    NUM_CHANNELS: 128
+TRAIN:
+  BACKBONE_MULTIPLIER: 0.1
+  BATCH_SIZE: 128
+  EPOCH: 300
+  GIOU_WEIGHT: 2.0
+  L1_WEIGHT: 5.0
+  GRAD_CLIP_NORM: 0.1
+  LR: 0.0004
+  LR_DROP_EPOCH: 240
+  NUM_WORKER: 5
+  OPTIMIZER: ADAMW
+  PRINT_INTERVAL: 50
+  SCHEDULER:
+    TYPE: step
+    DECAY_RATE: 0.1
+  VAL_EPOCH_INTERVAL: 1
+  WEIGHT_DECAY: 0.0001
+  AMP: False # Automatic Mixed Precision Training
+TEST:
+  DEVICE: cuda #{options: cuda, cpu}
+  EPOCH: 300
+  SEARCH_FACTOR: 4.0
+  SEARCH_SIZE: 256
+  TEMPLATE_FACTOR: 2.0
+  TEMPLATE_SIZE: 128

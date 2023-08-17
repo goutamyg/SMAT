@@ -1,0 +1,1 @@
+Place the pretrained mobilevit-v2 model here for training
