@@ -21,12 +21,24 @@ lib/test/evaluation/local.py  # paths about testing
 
 ## Training
 
-* Update the training dataset paths in `lib/train/admin/local.py`
-    
+* Set the path of training datasets in `lib/train/admin/local.py`
+* Place the pretrained model under the *** pretrained_models/*** folder
+* Run
+```
+python tracking/train.py --script mobilevitv2_track --config mobilevitv2_256_128x1_ep300 --save_dir ./output --mode single
+```
+* The training logs will be saved under *** output/logs/ *** folder
+
 ## Tracker Evaluation
 
 * Update the test dataset paths in `lib/test/evaluation/local.py`
-    
+* Place the pretrained tracker model under *** output/checkpoints/ *** folder 
+* Run
+```
+python tracking/train.py --script mobilevitv2_track --config mobilevitv2_256_128x1_ep300 --save_dir ./output --mode single
+```
+* The raw results are stored under *** output/test/ *** folder
+
 ## Visualization
 
 
