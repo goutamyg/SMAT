@@ -23,7 +23,8 @@ lib/test/evaluation/local.py  # paths about testing
 
 * Set the path of training datasets in `lib/train/admin/local.py`
 * Place the pretrained backbone model under the `pretrained_models/` folder
-* For data preparation, please refer to [this](https://github.com/botaoye/OSTrack/tree/main) 
+* For data preparation, please refer to [this](https://github.com/botaoye/OSTrack/tree/main)
+* Uncomment lines `63, 67, and 71` in the [base_backbone.py](https://github.com/goutamyg/SMAT/blob/main/lib/models/mobilevit_track/base_backbone.py) file. Long story short: The code is opitmized for high inference speed, hence some intermediate feature-maps are pre-computed during testing. We will try to fix it in near future. 
 * Run
 ```
 python tracking/train.py --script mobilevitv2_track --config mobilevitv2_256_128x1_ep300 --save_dir ./output --mode single
@@ -46,5 +47,6 @@ python tracking/test.py --tracker_name mobilevitv2_track --tracker_param mobilev
 ## Acknowledgements
 * We use the Separable Self-Attention Transformer implementation and the pretrained `MobileViTv2` backbone from [ml-cvnets](https://github.com/apple/ml-cvnets). Thank you!
 * Our training code is built upon [OSTrack](https://github.com/botaoye/OSTrack) and [PyTracking](https://github.com/visionml/pytracking)
+* To generate the evaluation metrics for different datasets (except, server-based GOT-10k and TrackingNet), we use the [pysot-toolkit](https://github.com/StrangerZhang/pysot-toolkit)
 
 ## Citation
