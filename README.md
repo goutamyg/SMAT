@@ -24,7 +24,8 @@ lib/test/evaluation/local.py  # paths about testing
 * Set the path of training datasets in `lib/train/admin/local.py`
 * Place the pretrained backbone model under the `pretrained_models/` folder
 * For data preparation, please refer to [this](https://github.com/botaoye/OSTrack/tree/main)
-* Uncomment lines `63, 67, and 71` in the [base_backbone.py](https://github.com/goutamyg/SMAT/blob/main/lib/models/mobilevit_track/base_backbone.py) file. Long story short: The code is opitmized for high inference speed, hence some intermediate feature-maps are pre-computed during testing. We will try to fix it in near future. 
+* Uncomment lines `63, 67, and 71` in the [base_backbone.py](https://github.com/goutamyg/SMAT/blob/main/lib/models/mobilevit_track/base_backbone.py) file. 
+Long story short: The code is opitmized for high inference speed, hence some intermediate feature-maps are pre-computed during testing. However, these pre-computations are not feasible during training. 
 * Run
 ```
 python tracking/train.py --script mobilevitv2_track --config mobilevitv2_256_128x1_ep300 --save_dir ./output --mode single
