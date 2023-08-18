@@ -70,17 +70,16 @@ class MobileViTv2Track(BaseTracker):
 
         # pre-compute the template features corresponding to first three of the tracker model (for speed-up)
         with torch.no_grad():
-            with torch.no_grad():
-                # conv_1 (i.e., the first conv3x3 layer) output for
-                z = self.network.backbone.conv_1.forward(template.tensors.to(self.device))
+            # conv_1 (i.e., the first conv3x3 layer) output for
+            z = self.network.backbone.conv_1.forward(template.tensors.to(self.device))
 
-                # layer_1 (i.e., MobileNetV2 block) output
-                z = self.network.backbone.layer_1.forward(z)
+            # layer_1 (i.e., MobileNetV2 block) output
+            z = self.network.backbone.layer_1.forward(z)
 
-                # layer_2 (i.e., MobileNetV2 with down-sampling + 2 x MobileNetV2) output
-                z = self.network.backbone.layer_2.forward(z)
+            # layer_2 (i.e., MobileNetV2 with down-sampling + 2 x MobileNetV2) output
+            z = self.network.backbone.layer_2.forward(z)
 
-                self.z_dict1 = z
+            self.z_dict1 = z
 
         self.box_mask_z = None
 
