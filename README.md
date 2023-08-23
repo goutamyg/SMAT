@@ -1,9 +1,10 @@
 # SMAT - Separable Self and Mixed Attention Transformers for Efficient Object Tracking
-The official implementation of **SMAT**
+The official implementation of **SMAT** [WACV2024]
 ![SMAT_block](assets/SMAT_block.png)
 
 ## News
 **`17-08-2023`**: The SMAT tracker training and inference code is released
+**`14-08-2023`**: The SMAT is accepted to WACV2024
 
 ## Installation
 
@@ -38,7 +39,7 @@ python tracking/train.py --script mobilevitv2_track --config mobilevitv2_256_128
 * Place the pretrained tracker model under `output/checkpoints/` folder 
 * Run
 ```
-python tracking/test.py --tracker_name mobilevitv2_track --tracker_param mobilevitv2_256_128x1_ep300 --dataset got10k_test/trackingnet/lasot
+python tracking/test.py --tracker_name mobilevitv2_track --tracker_param mobilevitv2_256_128x1_ep300 --dataset got10k_test or trackingnet or lasot
 ```
 * Change the `DEVICE` variable between `cuda` and `cpu` in the `--tracker_param` file for GPU and CPU-based inference, respectively  
 * The raw results will be stored under `output/test/` folder
