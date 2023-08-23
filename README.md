@@ -5,7 +5,7 @@ The official implementation of **SMAT**
 ## News
 **`17-08-2023`**: The SMAT tracker training and inference code is released
 
-**`14-08-2023`**: The paper is accepted to WACV2024
+**`14-08-2023`**: The paper is accepted at WACV2024
 
 ## Installation
 
