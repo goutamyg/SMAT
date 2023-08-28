@@ -3,6 +3,8 @@ The official implementation of **SMAT**
 ![SMAT_block](assets/SMAT_block.png)
 
 ## News
+**`28-08-2023`**: The pretrained tracker model is released
+
 **`17-08-2023`**: The SMAT tracker training and inference code is released
 
 **`14-08-2023`**: The paper is accepted at WACV2024
@@ -34,10 +36,13 @@ python tracking/train.py --script mobilevitv2_track --config mobilevitv2_256_128
 ```
 * The training logs will be saved under `output/logs/` folder
 
+## Pretrained tracker model
+The pretrained tracker model can be found [here](https://drive.google.com/drive/folders/1TindIEwu82IvtozwL4XQFrSnFE2Z6W4y)
+
 ## Tracker Evaluation
 
 * Update the test dataset paths in `lib/test/evaluation/local.py`
-* Place the pretrained tracker model under `output/checkpoints/` folder 
+* Place the [pretrained tracker model](https://drive.google.com/drive/folders/1TindIEwu82IvtozwL4XQFrSnFE2Z6W4y) under `output/checkpoints/` folder 
 * Run
 ```
 python tracking/test.py --tracker_name mobilevitv2_track --tracker_param mobilevitv2_256_128x1_ep300 --dataset got10k_test or trackingnet or lasot
