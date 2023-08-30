@@ -54,7 +54,7 @@ python tracking/test.py --tracker_name mobilevitv2_track --tracker_param mobilev
 To evaluate the tracker on a sample video, run
 ```
 python tracking/video_demo.py --tracker_name mobilevitv2_track --tracker_param mobilevitv2_256_128x1_ep300 --videofile *path-to-video-file* --optional_box *bounding-box-annotation*
-```*
+```
 
 ## Visualization
 Coming Soon
