@@ -4,7 +4,7 @@ The official implementation of **[SMAT]**
 
 ## News
 
-**`07-09-2023`**: The paper is available on [arXiV](https://arxiv.org/abs/2309.03979) now
+**`07-09-2023`**: The paper is available on [arXiv](https://arxiv.org/abs/2309.03979) now
 
 **`28-08-2023`**: The pretrained tracker model is released
 
