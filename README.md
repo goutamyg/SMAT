@@ -59,8 +59,8 @@ To evaluate the tracker on a sample video, run
 python tracking/video_demo.py --tracker_name mobilevitv2_track --tracker_param mobilevitv2_256_128x1_ep300 --videofile *path-to-video-file* --optional_box *bounding-box-annotation*
 ```
 
-## Visualization
-Coming Soon
+## Visualization of tracker output and the attention maps
+![attn_maps](assets/attn_visualization.png)
 
 ## Acknowledgements
 * We use the Separable Self-Attention Transformer implementation and the pretrained `MobileViTv2` backbone from [ml-cvnets](https://github.com/apple/ml-cvnets). Thank you!
