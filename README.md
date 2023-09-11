@@ -1,8 +1,11 @@
-# SMAT - Separable Self and Mixed Attention Transformers for Efficient Object Tracking [WACV2024]
-The official implementation of **SMAT** 
+# SMAT - [Separable Self and Mixed Attention Transformers for Efficient Object Tracking](https://arxiv.org/abs/2309.03979) [WACV2024]
+The official implementation of **[SMAT]** 
 ![SMAT_block](assets/SMAT_block.png)
 
 ## News
+
+**`07-09-2023`**: The paper is available on [arXiV](https://arxiv.org/abs/2309.03979) now
+
 **`28-08-2023`**: The pretrained tracker model is released
 
 **`17-08-2023`**: The SMAT tracker training and inference code is released
