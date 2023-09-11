@@ -1,5 +1,5 @@
 # SMAT - [Separable Self and Mixed Attention Transformers for Efficient Object Tracking](https://arxiv.org/abs/2309.03979) [WACV2024]
-The official implementation of **[SMAT]** 
+The official implementation of **SMAT** 
 ![SMAT_block](assets/SMAT_block.png)
 
 ## News
