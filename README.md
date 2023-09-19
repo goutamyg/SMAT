@@ -68,3 +68,16 @@ python tracking/video_demo.py --tracker_name mobilevitv2_track --tracker_param m
 * To generate the evaluation metrics for different datasets (except, server-based GOT-10k and TrackingNet), we use the [pysot-toolkit](https://github.com/StrangerZhang/pysot-toolkit)
 
 ## Citation
+If our work is useful for your research, please consider citing:
+
+```Bibtex
+@InProceedings{Gopal2024Sep,
+  author       = "Goutam Yelluru Gopal and Maria Amer",
+  title        = "Separable Self and Mixed Attention Transformers for Efficient Object Tracking",
+  booktitle    = "IEEE/CVF Winter Conference on Applications of Computer Vision (WACV) ",
+  year         = "2024",
+  pages        = "8",
+  month        = "Jan. 4-8",
+  address      = "Waikoloa, Hawaii",
+}
+```
