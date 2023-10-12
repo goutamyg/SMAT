@@ -42,6 +42,13 @@ class PreprocessorX_onnx(object):
         self.mean = torch.tensor([0.0, 0.0, 0.0]).view((1, 3, 1, 1)).to(device)
         self.std = torch.tensor([1.0, 1.0, 1.0]).view((1, 3, 1, 1)).to(device)
 
+        """
+            We need to convert the mean and std tensors to numpy in order to perform
+            the required mathematical calulations, otherwise a TypeError is reported. 
+        """
+        self.mean = self.mean.numpy()
+        self.std = self.std.numpy()
+
     def process(self, img_arr: np.ndarray, amask_arr: np.ndarray):
         """img_arr: (H,W,3), amask_arr: (H,W)"""
         # Deal with the image patch

@@ -33,7 +33,7 @@ class Tracker:
         display_name: Name to be displayed in the result plots.
     """
 
-    def __init__(self, name: str, parameter_name: str, dataset_name: str, run_id: int = None, display_name: str = None,
+    def __init__(self, name: str, parameter_name: str, inference_mode: str, dataset_name: str, run_id: int = None, display_name: str = None,
                  result_only=False):
         assert run_id is None or isinstance(run_id, int)
 
@@ -42,19 +42,20 @@ class Tracker:
         self.dataset_name = dataset_name
         self.run_id = run_id
         self.display_name = display_name
+        self.inference_mode = inference_mode
 
         env = env_settings()
         if self.run_id is None:
-            self.results_dir = '{}/{}/{}'.format(env.results_path, self.name, self.parameter_name)
+            self.results_dir = '{}/{}/{}/{}'.format(env.results_path, self.name, self.inference_mode, self.parameter_name)
         else:
-            self.results_dir = '{}/{}/{}_{:03d}'.format(env.results_path, self.name, self.parameter_name, self.run_id)
+            self.results_dir = '{}/{}/{}/{}_{:03d}'.format(env.results_path, self.name, self.inference_mode, self.parameter_name, self.run_id)
         if result_only:
-            self.results_dir = '{}/{}'.format(env.results_path, self.name)
+            self.results_dir = '{}/{}/{}'.format(env.results_path, self.name, self.inference_mode)
 
         tracker_module_abspath = os.path.abspath(os.path.join(os.path.dirname(__file__),
-                                                              '..', 'tracker', '%s.py' % self.name))
+                                                              '..', 'tracker', '%s.py' % (self.name + '_' + self.inference_mode)))
         if os.path.isfile(tracker_module_abspath):
-            tracker_module = importlib.import_module('lib.test.tracker.{}'.format(self.name))
+            tracker_module = importlib.import_module('lib.test.tracker.{}'.format(self.name + '_' + self.inference_mode))
             self.tracker_class = tracker_module.get_tracker_class()
         else:
             self.tracker_class = None
