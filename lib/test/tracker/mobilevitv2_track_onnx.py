@@ -195,11 +195,11 @@ class MobileViTv2Track(BaseTracker):
 
                 self.visdom.register(torch.from_numpy(x_patch_arr).permute(2, 0, 1), 'image', 1, 'search_region')
                 self.visdom.register(torch.from_numpy(self.z_patch_arr).permute(2, 0, 1), 'image', 1, 'template')
-                self.visdom.register(pred_score_map.view(self.feat_sz, self.feat_sz), 'heatmap', 1, 'score_map')
-                self.visdom.register((pred_score_map * self.output_window).view(self.feat_sz, self.feat_sz), 'heatmap', 1, 'score_map_hann')
+                self.visdom.register(pred_score_map_ort.view(self.feat_sz, self.feat_sz), 'heatmap', 1, 'score_map')
+                self.visdom.register((pred_score_map_ort * self.output_window).view(self.feat_sz, self.feat_sz), 'heatmap', 1, 'score_map_hann')
 
-                if 'removed_indexes_s' in out_dict and out_dict['removed_indexes_s']:
-                    removed_indexes_s = out_dict['removed_indexes_s']
+                if 'removed_indexes_s' in out_ort and out_ort['removed_indexes_s']:
+                    removed_indexes_s = out_ort['removed_indexes_s']
                     removed_indexes_s = [removed_indexes_s_i.cpu().numpy() for removed_indexes_s_i in removed_indexes_s]
                     masked_search = gen_visualization(x_patch_arr, removed_indexes_s)
                     self.visdom.register(torch.from_numpy(masked_search).permute(2, 0, 1), 'image', 1, 'masked_search')
@@ -211,7 +211,7 @@ class MobileViTv2Track(BaseTracker):
 
         if self.save_all_boxes:
             '''save all predictions'''
-            all_boxes = self.map_box_back_batch(pred_boxes * self.params.search_size / resize_factor, resize_factor)
+            all_boxes = self.map_box_back_batch(pred_boxes_ort * self.params.search_size / resize_factor, resize_factor)
             all_boxes_save = all_boxes.view(-1).tolist()  # (4N, )
             return {"target_bbox": self.state,
                     "all_boxes": all_boxes_save,
