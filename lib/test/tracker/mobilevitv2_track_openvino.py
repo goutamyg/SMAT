@@ -100,19 +100,13 @@ class MobileViTv2Track(BaseTracker):
         dummy_input = (torch.randn(1,3,256,256).to(self.device),
                        torch.randn(1,3,128,128).to(self.device))
         
-        inputs = [("x", [1,3,256,256], ov.Type.f32),
-                  ("z", [1,3,128,128], ov.Type.f32)]
-        
-        outputs = ['cls', 'reg']
-
         if not self.ir_network_path.exists():
             print("Exporting ONNX model to OpenVino IR .... This may take a few minutes.")
-            ov_model = ov.convert_model(self.onnx_path)
+            ov_model = ov.convert_model(self.onnx_path, example_input=dummy_input)
             
             ov.save_model(ov_model, self.ir_network_path)
             print("Model successfully converted!") 
         else:
-            # print(f"IR model already exists at: {self.ir_network_path}")
             pass
     
      
