@@ -71,133 +71,142 @@ class MobileViTv2Track(BaseTracker):
 
         # Paths where ONNX model and TensorRT Engine will be stored.
         self.onnx_file_path = Path(weights_path.with_suffix('.onnx'))
-        self.engine_file_path = Path(weights_path.with_suffix('.trt'))
+        self.engine_file_path = Path(weights_path.with_suffix('.engine'))
 
         # Specify batch size and model precision
         self.batch_size = 1
         self.precision = np.float32
 
-        # Create logger. You can adjust the log level if needed i.e, WARN, INFO, etc.
+        trt.init_libnvinfer_plugins(None,'')
+
+        # # Create logger. You can adjust the log level if needed i.e, WARN, INFO, etc.
         self.TRT_LOGGER = trt.Logger(trt.Logger.ERROR)
 
         # Perform model conversion from ONNX to equivalent TensorRT Optimized Engine
         self.engine = self.get_engine(self.onnx_file_path, self.engine_file_path)
 
-        # Create TensorRT Context
-        self.context = self.engine.create_execution_context()
+        # Get the total number of bindings in the engine
+        num_bindings = self.engine.num_bindings
 
-        # Allocate memory
-        self.allocate_memory(self.batch_size)
+        # # Retrieve and print the shapes of all bindings
+        # for binding_index in range(num_bindings):
+        #     binding_name = self.engine.get_binding_name(binding_index)
+        #     binding_shape = self.engine.get_binding_shape(binding_index)
+            
+        #     print(f"Binding Index: {binding_index}, Binding Name: {binding_name}, Shape: {binding_shape}")
 
         
     def get_engine(self, onnx_file_path, engine_file_path=""):
         """
           Attempts to load a serialized engine if available, otherwise builds a new TensorRT optimized engine and saves it.
         """    
-
-        def build_engine():
-            """
-                Takes an ONNX file and creates a TensorRT engine to run inference with
-            """
-            with trt.Builder(self.TRT_LOGGER) as builder, builder.create_network(1 << int(trt.NetworkDefinitionCreationFlag.EXPLICIT_BATCH)
-                    ) as network, builder.create_builder_config() as config, trt.OnnxParser(network, self.TRT_LOGGER
-                        ) as parser, trt.Runtime(self.TRT_LOGGER) as runtime:
-
-                config.set_memory_pool_limit(trt.MemoryPoolType.WORKSPACE, 8*1024*1024*1024) #8GB
-                builder.max_batch_size = 1
-
-                # Parse model file
-                print("Loading ONNX file from path {}...".format(onnx_file_path))
-                with open(onnx_file_path, "rb") as model:
-                    print("Beginning ONNX file parsing")
-                    if not parser.parse(model.read()):
-                        print("ERROR: Failed to parse the ONNX file.")
-                        for error in range(parser.num_errors):
-                            print(parser.get_error(error))
-                        return None
-                            
-                # print(network.get_input(0).shape)
-                # print(network.get_input(1).shape)
-                print("Completed parsing of ONNX file")
-                print("Building an engine from file {}; this may take a while...".format(onnx_file_path))
-
-                plan = builder.build_serialized_network(network, config)
-                engine = runtime.deserialize_cuda_engine(plan)
-
-                print("Completed creating Engine")
-                with open(engine_file_path, "wb") as f:
-                    f.write(plan)
-                return engine
-
         if os.path.exists(engine_file_path):
-            # Load plugins to avoid potential error
+            # Load a pre-built engine if it exists
             trt.init_libnvinfer_plugins(None,'')
-            # If a serialized engine exists, use it instead of building an engine.
             print("Reading engine from file {}".format(engine_file_path))
             with open(engine_file_path, "rb") as f, trt.Runtime(self.TRT_LOGGER) as runtime:
                 return runtime.deserialize_cuda_engine(f.read())
         else:
-            return build_engine()
+            # Build a new engine if it doesn't exist
+            return self.build_engine(onnx_file_path, engine_file_path)
 
-    def allocate_memory(self, batch_size):
+    def build_engine(self, onnx_file_path, engine_file_path):
+
         """
-        Method that allocates memory for input and output bindings as well GPU buffers 
+        Takes an ONNX file and creates a TensorRT engine to run inference with
         """
-        print("Allocating memory")
+        with trt.Builder(self.TRT_LOGGER) as builder, builder.create_network(1 << int(trt.NetworkDefinitionCreationFlag.EXPLICIT_BATCH)) as network:
+            # Configure builder options
+            builder.max_batch_size = 1
+            config = builder.create_builder_config()
+            config.set_memory_pool_limit(trt.MemoryPoolType.WORKSPACE, 4 * 1024 * 1024 * 1024)  # 4GB
 
-        # Need to set both input and output precisions to appropriate precision
-        self.z_input = np.empty([batch_size, 3, 128, 128], dtype=self.precision)
-        self.x_input = np.empty([batch_size, 3, 256, 256], dtype=self.precision)
+            # Parse model file
+            print("Loading ONNX file from path {}...".format(onnx_file_path))
+            with open(onnx_file_path, "rb") as model:
+                print("Beginning ONNX file parsing")
+                parser = trt.OnnxParser(network, self.TRT_LOGGER)
+                if not parser.parse(model.read()):
+                    raise RuntimeError("Failed to parse the ONNX file.")
 
-        # Allocate GPU memory for input tensors
-        self.d_z_input = cuda.mem_alloc(1 * self.z_input.nbytes)
-        self.d_x_input = cuda.mem_alloc(1 * self.x_input.nbytes)
+            print("Completed parsing of ONNX file")
+            print("Building an engine from file {}; this may take a while...".format(onnx_file_path))
 
-        # Output buffers 
-        self.cls = np.empty([batch_size, 1, 4], dtype=self.precision)
-        self.reg = np.empty([batch_size, 1, 16, 16], dtype=self.precision)
-        self.size_map = np.empty([batch_size, 2, 16, 16], dtype=self.precision)
-        self.offset_map = np.empty([batch_size, 2, 16, 16], dtype=self.precision) 
+            # Build the serialized engine and save it
+            with trt.Runtime(self.TRT_LOGGER) as runtime:
+                plan = builder.build_serialized_network(network, config)
+                engine = runtime.deserialize_cuda_engine(plan)
 
-        # Allocate GPU buffers for output tensors
-        self.d_cls = cuda.mem_alloc(1 * self.cls.nbytes)
-        self.d_reg = cuda.mem_alloc(1 * self.reg.nbytes)
-        self.d_size_map = cuda.mem_alloc(1 * self.size_map.nbytes)
-        self.d_offset_map = cuda.mem_alloc(1 * self.offset_map.nbytes)
+            print("Completed creating Engine")
+            with open(engine_file_path, "wb") as f:
+                f.write(plan)
 
-        self.bindings = [int(self.d_z_input),
-                        int(self.d_x_input),
-                        int(self.d_cls),
-                        int(self.d_reg),
-                        int(self.d_size_map),
-                        int(self.d_offset_map)]
-                    
-        self.stream = cuda.Stream()
-    
-    def infer(self, batch):
+            return engine
+            
+    def predict(self, engine, inputs):
 
-        # Ensure input arrays are contiguous to enable copying to CUDA devices
-        contiguous_z = np.ascontiguousarray(batch['z'])
-        contiguous_x = np.ascontiguousarray(batch['x'])
+        with engine.create_execution_context() as context:
 
-        # transfer input data to device
-        cuda.memcpy_htod_async(self.d_z_input, contiguous_z, self.stream)
-        cuda.memcpy_htod_async(self.d_x_input, contiguous_x, self.stream)
+            # Allocate host and device buffers
+            bindings = []
+            for binding in engine:
+                
+                binding_idx = engine.get_binding_index(binding) # Retrieve index
+                size = trt.volume(context.get_binding_shape(binding_idx)) # Retrieve shape
+                dtype = trt.nptype(engine.get_binding_dtype(binding)) # Retrieve datatype
+                name = engine.get_binding_name(binding_idx) # Retrieve name
+                
+                if name == 'z':
+                    input_buffer_z = np.ascontiguousarray(inputs[0])
+                    input_memory_z = cuda.mem_alloc(inputs[0].nbytes) # Allocate GPU memory
+                    bindings.append(int(input_memory_z))
+                elif name == 'x':
+                    input_buffer_x = np.ascontiguousarray(inputs[1])
+                    input_memory_x = cuda.mem_alloc(inputs[1].nbytes)
+                    bindings.append(int(input_memory_x))
+                elif name == 'cls':
+                    output_buffer_cls = cuda.pagelocked_empty(size, dtype)
+                    output_memory_cls = cuda.mem_alloc(output_buffer_cls.nbytes)
+                    bindings.append(int(output_memory_cls))
+                elif name == 'reg':
+                    output_buffer_reg = cuda.pagelocked_empty(size, dtype)
+                    output_memory_reg = cuda.mem_alloc(output_buffer_reg.nbytes)
+                    bindings.append(int(output_memory_reg))
+                elif name == 'size_map':
+                    output_buffer_size_map = cuda.pagelocked_empty(size, dtype)
+                    output_memory_size_map = cuda.mem_alloc(output_buffer_size_map.nbytes)
+                    bindings.append(int(output_memory_size_map))
+                else: # offset_map
+                    output_buffer_offset_map = cuda.pagelocked_empty(size, dtype)
+                    output_memory_offset_map = cuda.mem_alloc(output_buffer_offset_map.nbytes)
+                    bindings.append(int(output_memory_offset_map))
 
-        # execute model
-        self.context.execute_async_v2(self.bindings, self.stream.handle, None)
+            stream = cuda.Stream()
+            
+            # Transfer input data to the GPU.
+            cuda.memcpy_htod_async(input_memory_z, input_buffer_z, stream)
+            cuda.memcpy_htod_async(input_memory_x, input_buffer_x, stream)
+            
+            # Run inference
+            context.execute_async_v2(bindings=bindings, stream_handle=stream.handle)
+            
+            # Transfer prediction output from the GPU.
+            cuda.memcpy_dtoh_async(output_buffer_cls, output_memory_cls, stream)
+            cuda.memcpy_dtoh_async(output_buffer_reg, output_memory_reg, stream)
+            cuda.memcpy_dtoh_async(output_buffer_size_map, output_memory_size_map, stream)
+            cuda.memcpy_dtoh_async(output_buffer_offset_map, output_memory_offset_map, stream)
+            
+            # Synchronize the stream
+            stream.synchronize()
 
-        # transfer predictions back to cpu
-        cuda.memcpy_dtoh_async(self.cls, self.d_cls, self.stream)
-        cuda.memcpy_dtoh_async(self.reg, self.d_reg, self.stream)
-        cuda.memcpy_dtoh_async(self.size_map, self.d_size_map, self.stream)
-        cuda.memcpy_dtoh_async(self.offset_map, self.d_offset_map, self.stream)
+        output_buffer_reg = output_buffer_reg.reshape(1,1,16,16)
+        output_buffer_size_map = output_buffer_size_map.reshape(1,2,16,16)
+        output_buffer_offset_map = output_buffer_offset_map.reshape(1,2,16,16)
 
-        # syncronize threads
-        self.stream.synchronize()
+        output = (output_buffer_cls, output_buffer_reg, output_buffer_size_map, output_buffer_offset_map)
         
-        return [self.cls, self.reg, self.size_map, self.offset_map]
-        
+        return output
+
     def initialize(self, image, info: dict):
         # forward the template once
         z_patch_arr, resize_factor, z_amask_arr = sample_target(image, info['init_bbox'], self.params.template_factor,
@@ -223,25 +232,23 @@ class MobileViTv2Track(BaseTracker):
         x_patch_arr, resize_factor, x_amask_arr = sample_target(image, self.state, self.params.search_factor,
                                                                 output_sz=self.params.search_size)  # (x1, y1, w, h)
         search = self.preprocessor.process(x_patch_arr, x_amask_arr)
+                    
+        x_dict = search
+                
+        # Model inputs
+        tensorrt_inputs = (self.z_dict[0].astype(self.precision),
+                            x_dict[0].astype(self.precision))
 
-        with torch.no_grad():
-            x_dict = search
+        # Run inference
+        out_dict = self.predict(self.engine, tensorrt_inputs)
 
-            # Model inputs
-            tensorrt_inputs = {'x': x_dict[0].astype(self.precision),
-                            'z': self.z_dict[0].astype(self.precision)}
- 
-            # Run inference on input data
-            out_dict = self.infer(tensorrt_inputs)
-        
         # Post-process predictions to evaluate tracker performance
         pred_score_map = out_dict[1]
-
         # add hann windows
         response = self.output_window * torch.from_numpy(pred_score_map).to(self.device)
         # response = pred_score_map
         pred_boxes = self.network.box_head.cal_bbox(response, torch.from_numpy(out_dict[2]).to(self.device),
-                                                     torch.from_numpy(out_dict[3]).to(self.device))
+                                        torch.from_numpy(out_dict[3]).to(self.device))
         pred_boxes = pred_boxes.view(-1, 4)
         # Baseline: Take the mean of all pred boxes as the final result
         pred_box = (pred_boxes.mean(dim=0) * self.params.search_size / resize_factor).tolist()  # (cx, cy, w, h) [0,1]
@@ -311,7 +318,18 @@ class MobileViTv2Track(BaseTracker):
                     "search_area": x_patch_arr
                     # "target_response": colored_cls_map,
                     # "vis_bbox": search_area_with_bbox
-                    }     
+                    }
+        
+
+    def cleanup(self):
+        self.d_x_input.free()
+        self.d_z_input.free()
+        self.d_cls.free()
+        self.d_reg.free()
+        self.d_size_map.free()
+        self.d_offset_map.free()
+
+        print("Memory buffers clean-up successful!")
 
     def map_box_back(self, pred_box: list, resize_factor: float):
         cx_prev, cy_prev = self.state[0] + 0.5 * self.state[2], self.state[1] + 0.5 * self.state[3]
@@ -356,3 +374,7 @@ class MobileViTv2Track(BaseTracker):
 
 def get_tracker_class():
     return MobileViTv2Track
+
+
+def to_numpy(tensor):
+    return tensor.detach().cpu().numpy() if tensor.requires_grad else tensor.cpu().numpy()
