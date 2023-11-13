@@ -4,6 +4,7 @@ Basic MobileViT-Track model.
 import math
 import os
 from typing import List
+from typing import NamedTuple
 
 import torch
 from torch import nn
@@ -16,6 +17,15 @@ from .layers.head import build_box_head
 from lib.models.mobilevit_track.mobilevit_v2 import MobileViTv2_backbone
 from lib.utils.box_ops import box_xyxy_to_cxcywh
 from easydict import EasyDict as edict
+"""
+ Define a NamedTuple for the output; helps counter pytorch jit tracer error due to a dictionary at the output 
+ of the traced module, which can lead to incorrect traces.
+"""
+class MyOutput(NamedTuple):
+    pred_boxes: torch.Tensor
+    score_map: torch.Tensor
+    size_map: torch.Tensor
+    offset_map: torch.Tensor
 
 
 class MobileViTv2_Track(nn.Module):
@@ -72,9 +82,10 @@ class MobileViTv2_Track(nn.Module):
             pred_box, score_map = self.box_head(opt_feat, True)
             outputs_coord = box_xyxy_to_cxcywh(pred_box)
             outputs_coord_new = outputs_coord.view(bs, 1, 4)
-            out = {'pred_boxes': outputs_coord_new,
-                   'score_map': score_map,
-                   }
+            out = MyOutput(outputs_coord_new, score_map, 0, 0)
+            # out = {'pred_boxes': outputs_coord_new,
+            #        'score_map': score_map,
+            #        }
             return out
 
         elif "CENTER" in self.head_type:
@@ -83,10 +94,11 @@ class MobileViTv2_Track(nn.Module):
             # outputs_coord = box_xyxy_to_cxcywh(bbox)
             outputs_coord = bbox
             outputs_coord_new = outputs_coord.view(bs, 1, 4)
-            out = {'pred_boxes': outputs_coord_new,
-                   'score_map': score_map_ctr,
-                   'size_map': size_map,
-                   'offset_map': offset_map}
+            out = MyOutput(outputs_coord_new, score_map_ctr, size_map, offset_map)
+            # out = {'pred_boxes': outputs_coord_new,
+            #        'score_map': score_map_ctr,
+            #        'size_map': size_map,
+            #        'offset_map': offset_map}
             return out
         else:
             raise NotImplementedError
