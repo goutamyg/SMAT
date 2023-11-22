@@ -1,0 +1,775 @@
+TRT-8503-EntropyCalibration2
+z: 3c0a8957
+x: 3c02dbde
+(Unnamed Layer* 14) [Constant]_output: 3cd6d05e
+onnx::Conv_1421: 3cd6d05e
+(Unnamed Layer* 16) [Constant]_output: 3bbe430f
+onnx::Conv_1420: 3bbe430f
+(Unnamed Layer* 18) [Constant]_output: 3edc626e
+onnx::Conv_1415: 3edc626e
+(Unnamed Layer* 20) [Constant]_output: 3ca938b9
+onnx::Conv_1414: 3ca938b9
+(Unnamed Layer* 22) [Constant]_output: 3e056854
+onnx::Conv_1412: 3e056854
+(Unnamed Layer* 24) [Constant]_output: 3e1fb7f7
+onnx::Conv_1411: 3e1fb7f7
+(Unnamed Layer* 26) [Constant]_output: 3d39a625
+onnx::Conv_1409: 3d39a625
+(Unnamed Layer* 28) [Constant]_output: 3a8ead80
+onnx::Conv_1408: 3a8ead80
+(Unnamed Layer* 30) [Constant]_output: 3f086975
+onnx::Conv_1397: 3f086975
+(Unnamed Layer* 32) [Constant]_output: 3c6251eb
+onnx::Conv_1396: 3c6251eb
+(Unnamed Layer* 34) [Constant]_output: 3cd99fac
+onnx::Conv_1391: 3cd99fac
+(Unnamed Layer* 36) [Constant]_output: 3baec162
+onnx::Conv_1390: 3baec162
+(Unnamed Layer* 38) [Constant]_output: 3ef7b18b
+onnx::Conv_1385: 3ef7b18b
+(Unnamed Layer* 40) [Constant]_output: 3ccf130b
+onnx::Conv_1384: 3ccf130b
+(Unnamed Layer* 42) [Constant]_output: 3e2b8715
+onnx::Conv_1382: 3e2b8715
+(Unnamed Layer* 44) [Constant]_output: 3e4aaaf2
+onnx::Conv_1381: 3e4aaaf2
+(Unnamed Layer* 46) [Constant]_output: 3d7c2be9
+onnx::Conv_1379: 3d7c2be9
+(Unnamed Layer* 48) [Constant]_output: 3b0b3fda
+onnx::Conv_1378: 3b0b3fda
+(Unnamed Layer* 50) [Constant]_output: 3e4dd9b9
+onnx::Conv_1367: 3e4dd9b9
+(Unnamed Layer* 52) [Constant]_output: 3bd7bcd1
+onnx::Conv_1366: 3bd7bcd1
+(Unnamed Layer* 54) [Constant]_output: 3e09f75c
+onnx::Conv_1364: 3e09f75c
+(Unnamed Layer* 56) [Constant]_output: 3f8d35dd
+onnx::Conv_1363: 3f8d35dd
+(Unnamed Layer* 58) [Constant]_output: 3da200fa
+onnx::Conv_1361: 3da200fa
+(Unnamed Layer* 60) [Constant]_output: 3b26b166
+onnx::Conv_1360: 3b26b166
+(Unnamed Layer* 62) [Constant]_output: 3e69318c
+onnx::Conv_1358: 3e69318c
+(Unnamed Layer* 64) [Constant]_output: 3bcf2d37
+onnx::Conv_1357: 3bcf2d37
+(Unnamed Layer* 66) [Constant]_output: 3e14f949
+onnx::Conv_1355: 3e14f949
+(Unnamed Layer* 68) [Constant]_output: 3f2715da
+onnx::Conv_1354: 3f2715da
+(Unnamed Layer* 70) [Constant]_output: 3e514d37
+onnx::Conv_1352: 3e514d37
+(Unnamed Layer* 72) [Constant]_output: 3c81caff
+onnx::Conv_1351: 3c81caff
+(Unnamed Layer* 74) [Constant]_output: 3de51997
+onnx::Conv_1331: 3de51997
+(Unnamed Layer* 76) [Constant]_output: 3c19110a
+onnx::Conv_1330: 3c19110a
+(Unnamed Layer* 78) [Constant]_output: 3e396bd4
+onnx::Conv_1328: 3e396bd4
+(Unnamed Layer* 80) [Constant]_output: 3f22c26b
+onnx::Conv_1327: 3f22c26b
+(Unnamed Layer* 82) [Constant]_output: 3da2e759
+onnx::Conv_1325: 3da2e759
+(Unnamed Layer* 84) [Constant]_output: 3c943da5
+onnx::Conv_1324: 3c943da5
+(Unnamed Layer* 86) [Constant]_output: 3dc09fff
+onnx::Conv_1313: 3dc09fff
+(Unnamed Layer* 88) [Constant]_output: 3e34c805
+onnx::Conv_1312: 3e34c805
+input.4: 3e3f4df2
+input.8: 3e217982
+input.16: 3e1efd78
+input.20: 3e582f2a
+input.28: 3e7b683a
+input.32: 3e16ac64
+input.40: 3e5b12f6
+input.44: 3df3fd7f
+input.52: 3e6386df
+input.60: 3e96ff36
+input.64: 3e7f3c16
+input.72: 3e6bc287
+input.76: 3e70cff9
+input.84: 3e6ac9b3
+input.92: 3f10a3e8
+input.96: 3e976dcf
+input.104: 3e38b57a
+input.108: 3e47a34c
+input.116: 3e426412
+input.124: 3e2c1636
+input.128: 3dec42a4
+input.136: 3e24b1b4
+input.140: 3e24b1b4
+onnx::Add_1347: 3e13d3b6
+input.148: 3e753c58
+input.156: 3f684da2
+input.160: 3f0ba9ca
+input.168: 3e7717bc
+input.172: 3e555021
+input.180: 3e8ee7b2
+input.188: 3e5eb2d2
+input.192: 3e2ec61f
+input.200: 3e24f92a
+input.204: 3e24f92a
+onnx::Add_1365: 3e87760f
+input.212: 3eb1441f
+input.220: 3e87a070
+input.224: 3e7297b9
+input.232: 3e16428b
+input.236: 3dffbf7d
+input.244: 3f07962b
+input.252: 3ea1f5b0
+input.256: 3ecd42e5
+input.264: 3e006ffd
+input.268: 3dff720c
+input.276: 3f21397d
+input.284: 3dba24af
+input.288: 3db9cbeb
+fm_x: 3e6797fb
+input.296: 3dc8c1b9
+input.300: 3dda4f2d
+fm_z: 3e71d777
+onnx::Reshape_456: 3e6797fb
+onnx::Concat_464: 3e6797fb
+onnx::Reshape_467: 3e71d777
+onnx::Concat_475: 3e71d777
+input.304: 3e560a1f
+onnx::InstanceNormalization_478: 3e560a1f
+(Unnamed Layer* 148) [Shuffle]_output: 3e560a1f
+(Unnamed Layer* 149) [PluginV2DynamicExt]_output_0: 3d742865
+onnx::Reshape_481: 3d742865
+onnx::Mul_483: 3d742865
+(Unnamed Layer* 153) [Constant]_output: 3bf189ff
+(Unnamed Layer* 154) [Shuffle]_output: 3bf189ff
+onnx::Add_485: 3ccca379
+(Unnamed Layer* 156) [Constant]_output: 3b7ec5fb
+(Unnamed Layer* 157) [Shuffle]_output: 3b7ec5fb
+input.308: 3cd9a647
+tensor: 3dac215c
+query: 3d79a60c
+onnx::Mul_490: 3dc94119
+value: 3d6f1d84
+(Unnamed Layer* 163) [Shuffle]_output: 3d79a60c
+(Unnamed Layer* 164) [Softmax]_output: 3a035290
+input.312: 3a035290
+onnx::ReduceSum_493: 3b025468
+onnx::Expand_494: 3d87a2ea
+onnx::Mul_495: 3d327c0e
+onnx::Mul_497: 3d87a2ea
+input.316: 3d4734e6
+input.320: 3e9f88c3
+input.324: 3ef6fa23
+onnx::InstanceNormalization_502: 3ef6fa23
+(Unnamed Layer* 181) [Shuffle]_output: 3ef6fa23
+(Unnamed Layer* 182) [PluginV2DynamicExt]_output_0: 3da8178c
+onnx::Reshape_505: 3da8178c
+onnx::Mul_507: 3da8178c
+(Unnamed Layer* 186) [Constant]_output: 3c8e8206
+(Unnamed Layer* 187) [Shuffle]_output: 3c8e8206
+onnx::Add_509: 3d6009fc
+(Unnamed Layer* 189) [Constant]_output: 3b88b134
+(Unnamed Layer* 190) [Shuffle]_output: 3b88b134
+input.328: 3d3dcd75
+input.332: 3e1fb6fd
+input.336: 3daa2dba
+input.340: 3eabf479
+input.344: 3f3f247f
+onnx::InstanceNormalization_517: 3f3f247f
+(Unnamed Layer* 197) [Shuffle]_output: 3f3f247f
+(Unnamed Layer* 198) [PluginV2DynamicExt]_output_0: 3dba7fbe
+onnx::Reshape_520: 3dba7fbe
+onnx::Mul_522: 3dba7fbe
+(Unnamed Layer* 202) [Constant]_output: 3cb82818
+(Unnamed Layer* 203) [Shuffle]_output: 3cb82818
+onnx::Add_524: 3cdf12c7
+(Unnamed Layer* 205) [Constant]_output: 3bb411ba
+(Unnamed Layer* 206) [Shuffle]_output: 3bb411ba
+input.348: 3ce4a4cd
+tensor.3: 3d83eecb
+query.3: 3cf8c057
+onnx::Mul_529: 3d83eecb
+value.3: 3d83336b
+(Unnamed Layer* 212) [Shuffle]_output: 3cf8c057
+(Unnamed Layer* 213) [Softmax]_output: 394e63ca
+input.352: 394e63ca
+onnx::ReduceSum_532: 39fc62aa
+onnx::Expand_533: 3ccd4836
+onnx::Mul_534: 3d6a4a86
+onnx::Mul_536: 3ccd4836
+input.356: 3d283d4e
+input.360: 3e78ef63
+input.364: 3f78164a
+onnx::InstanceNormalization_541: 3f78164a
+(Unnamed Layer* 230) [Shuffle]_output: 3f78164a
+(Unnamed Layer* 231) [PluginV2DynamicExt]_output_0: 3db3cd44
+onnx::Reshape_544: 3db3cd44
+onnx::Mul_546: 3db3cd44
+(Unnamed Layer* 235) [Constant]_output: 3c950ad6
+(Unnamed Layer* 236) [Shuffle]_output: 3c950ad6
+onnx::Add_548: 3d186e6c
+(Unnamed Layer* 238) [Constant]_output: 3c2e72f4
+(Unnamed Layer* 239) [Shuffle]_output: 3c2e72f4
+input.368: 3d0924bb
+input.372: 3de127de
+input.376: 3d961d84
+input.380: 3f102414
+input.384: 3fc708a5
+onnx::InstanceNormalization_556: 3fc708a5
+(Unnamed Layer* 246) [Shuffle]_output: 3fc708a5
+(Unnamed Layer* 247) [PluginV2DynamicExt]_output_0: 3d86c4f7
+onnx::Reshape_559: 3d86c4f7
+onnx::Mul_561: 3d86c4f7
+(Unnamed Layer* 251) [Constant]_output: 3cfbe35c
+(Unnamed Layer* 252) [Shuffle]_output: 3cfbe35c
+onnx::Add_563: 3dbda362
+(Unnamed Layer* 254) [Constant]_output: 3d8091e4
+(Unnamed Layer* 255) [Shuffle]_output: 3d8091e4
+onnx::Slice_565: 3dd7ed46
+patches_x: 3dd78030
+patches_z: 3ddbf6eb
+onnx::DepthToSpace_585: 3dd78030
+(Unnamed Layer* 260) [Shuffle]_output: 3dd78030
+input.388: 3dd78030
+onnx::DepthToSpace_596: 3ddbf6eb
+(Unnamed Layer* 263) [Shuffle]_output: 3ddbf6eb
+input.392: 3ddbf6eb
+input.400: 3e44788e
+input.408: 3e448c17
+input.416: 3db32b7c
+input.420: 3de1de2d
+input.428: 3dced934
+input.432: 3dd008ba
+input.440: 3f0bf8b0
+input.448: 3dbd3734
+input.452: 3dbf40e6
+input.460: 3dce7ebd
+input.464: 3dcda7ce
+input.472: 3f29ca3b
+input.480: 3dd1932c
+input.484: 3d9a6d0c
+fm_x.3: 3e9babbf
+input.492: 3deddeb7
+input.496: 3db8b3c1
+fm_z.3: 3eae3764
+onnx::Reshape_629: 3e9babbf
+onnx::Concat_637: 3e9babbf
+onnx::Reshape_640: 3eae3764
+onnx::Concat_648: 3eae3764
+input.500: 3e9babbf
+onnx::InstanceNormalization_651: 3e9babbf
+(Unnamed Layer* 289) [Shuffle]_output: 3e9babbf
+(Unnamed Layer* 290) [PluginV2DynamicExt]_output_0: 3d8505e5
+onnx::Reshape_654: 3d8505e5
+onnx::Mul_656: 3d8505e5
+(Unnamed Layer* 294) [Constant]_output: 3c07a467
+(Unnamed Layer* 295) [Shuffle]_output: 3c07a467
+onnx::Add_658: 3cf3a827
+(Unnamed Layer* 297) [Constant]_output: 3bb7fe4d
+(Unnamed Layer* 298) [Shuffle]_output: 3bb7fe4d
+input.504: 3ceffdbf
+tensor.7: 3d6491ed
+query.7: 3d60fb83
+onnx::Mul_663: 3d60e4d4
+value.7: 3d549066
+(Unnamed Layer* 304) [Shuffle]_output: 3d60fb83
+(Unnamed Layer* 305) [Softmax]_output: 3ac4f597
+input.508: 3ac4f597
+onnx::ReduceSum_666: 3b08bb1f
+onnx::Expand_667: 3cbce4d9
+onnx::Mul_668: 3d4604fb
+onnx::Mul_670: 3cbce4d9
+input.512: 3d33a0ea
+input.516: 3ee8bf09
+input.520: 3f1b3035
+onnx::InstanceNormalization_675: 3f1b3035
+(Unnamed Layer* 322) [Shuffle]_output: 3f1b3035
+(Unnamed Layer* 323) [PluginV2DynamicExt]_output_0: 3dc1991c
+onnx::Reshape_678: 3dc1991c
+onnx::Mul_680: 3dc1991c
+(Unnamed Layer* 327) [Constant]_output: 3c85cc8a
+(Unnamed Layer* 328) [Shuffle]_output: 3c85cc8a
+onnx::Add_682: 3d525fa5
+(Unnamed Layer* 330) [Constant]_output: 3c005846
+(Unnamed Layer* 331) [Shuffle]_output: 3c005846
+input.524: 3d54289c
+input.528: 3e3b0b5d
+input.532: 3da4ea7e
+input.536: 3f0dba19
+input.540: 3f80f8d3
+onnx::InstanceNormalization_690: 3f80f8d3
+(Unnamed Layer* 338) [Shuffle]_output: 3f80f8d3
+(Unnamed Layer* 339) [PluginV2DynamicExt]_output_0: 3de12d79
+onnx::Reshape_693: 3de12d79
+onnx::Mul_695: 3de12d79
+(Unnamed Layer* 343) [Constant]_output: 3c6bdeed
+(Unnamed Layer* 344) [Shuffle]_output: 3c6bdeed
+onnx::Add_697: 3cbd83a4
+(Unnamed Layer* 346) [Constant]_output: 3ad9cd90
+(Unnamed Layer* 347) [Shuffle]_output: 3ad9cd90
+input.544: 3cef30ab
+tensor.11: 3d85e7e1
+query.11: 3d5acbc1
+onnx::Mul_702: 3d82c5a8
+value.11: 3d8b7d08
+(Unnamed Layer* 353) [Shuffle]_output: 3d5acbc1
+(Unnamed Layer* 354) [Softmax]_output: 3a34bab5
+input.548: 3a34bab5
+onnx::ReduceSum_705: 3acc276c
+onnx::Expand_706: 3d14293d
+onnx::Mul_707: 3d4ebffc
+onnx::Mul_709: 3d14293d
+input.552: 3d1ef306
+input.556: 3e91854d
+input.560: 3f9cad36
+onnx::InstanceNormalization_714: 3f9cad36
+(Unnamed Layer* 371) [Shuffle]_output: 3f9cad36
+(Unnamed Layer* 372) [PluginV2DynamicExt]_output_0: 3ddffa66
+onnx::Reshape_717: 3ddffa66
+onnx::Mul_719: 3ddffa66
+(Unnamed Layer* 376) [Constant]_output: 3ca13f19
+(Unnamed Layer* 377) [Shuffle]_output: 3ca13f19
+onnx::Add_721: 3d00a034
+(Unnamed Layer* 379) [Constant]_output: 3ba7c9fa
+(Unnamed Layer* 380) [Shuffle]_output: 3ba7c9fa
+input.564: 3cfe98a8
+input.568: 3e103df9
+input.572: 3de19a84
+input.576: 3ec765c2
+input.580: 3fc26a3d
+onnx::InstanceNormalization_729: 3fc26a3d
+(Unnamed Layer* 387) [Shuffle]_output: 3fc26a3d
+(Unnamed Layer* 388) [PluginV2DynamicExt]_output_0: 3de53318
+onnx::Reshape_732: 3de53318
+onnx::Mul_734: 3de53318
+(Unnamed Layer* 392) [Constant]_output: 3c7b23cb
+(Unnamed Layer* 393) [Shuffle]_output: 3c7b23cb
+onnx::Add_736: 3c96ec59
+(Unnamed Layer* 395) [Constant]_output: 3b2ce1eb
+(Unnamed Layer* 396) [Shuffle]_output: 3b2ce1eb
+input.584: 3cb54d62
+tensor.15: 3d9c0b2e
+query.15: 3cfeb1c3
+onnx::Mul_741: 3d84e6a4
+value.15: 3da68dd0
+(Unnamed Layer* 402) [Shuffle]_output: 3cfeb1c3
+(Unnamed Layer* 403) [Softmax]_output: 3a6d067a
+input.588: 3a6d067a
+onnx::ReduceSum_744: 3ac5d16f
+onnx::Expand_745: 3d203e9d
+onnx::Mul_746: 3da1bdf7
+onnx::Mul_748: 3d203e9d
+input.592: 3d4808ff
+input.596: 3e53dc0a
+input.600: 3fd4bd2f
+onnx::InstanceNormalization_753: 3fd4bd2f
+(Unnamed Layer* 420) [Shuffle]_output: 3fd4bd2f
+(Unnamed Layer* 421) [PluginV2DynamicExt]_output_0: 3deb6e92
+onnx::Reshape_756: 3deb6e92
+onnx::Mul_758: 3deb6e92
+(Unnamed Layer* 425) [Constant]_output: 3ce91669
+(Unnamed Layer* 426) [Shuffle]_output: 3ce91669
+onnx::Add_760: 3d20744e
+(Unnamed Layer* 428) [Constant]_output: 3beaf243
+(Unnamed Layer* 429) [Shuffle]_output: 3beaf243
+input.604: 3d24082d
+input.608: 3e2b749d
+input.612: 3e1a2b44
+input.616: 3e90304b
+input.620: 3fecd77d
+onnx::InstanceNormalization_768: 3fecd77d
+(Unnamed Layer* 436) [Shuffle]_output: 3fecd77d
+(Unnamed Layer* 437) [PluginV2DynamicExt]_output_0: 3deee248
+onnx::Reshape_771: 3deee248
+onnx::Mul_773: 3deee248
+(Unnamed Layer* 441) [Constant]_output: 3cc3bb60
+(Unnamed Layer* 442) [Shuffle]_output: 3cc3bb60
+onnx::Add_775: 3cfa4c1c
+(Unnamed Layer* 444) [Constant]_output: 3b924d39
+(Unnamed Layer* 445) [Shuffle]_output: 3b924d39
+input.624: 3d015752
+tensor.19: 3e0f88a1
+query.19: 3d0d5fa6
+onnx::Mul_780: 3d846e87
+value.19: 3e0f88a1
+(Unnamed Layer* 451) [Shuffle]_output: 3d0d5fa6
+(Unnamed Layer* 452) [Softmax]_output: 3a62e100
+input.628: 3a62e100
+onnx::ReduceSum_783: 3b00ecc1
+onnx::Expand_784: 3c9fe5c4
+onnx::Mul_785: 3e163f3d
+onnx::Mul_787: 3c9fe5c4
+input.632: 3d8e0a6a
+input.636: 3e9a4246
+input.640: 4003d30b
+onnx::InstanceNormalization_792: 4003d30b
+(Unnamed Layer* 469) [Shuffle]_output: 4003d30b
+(Unnamed Layer* 470) [PluginV2DynamicExt]_output_0: 3de8123e
+onnx::Reshape_795: 3de8123e
+onnx::Mul_797: 3de8123e
+(Unnamed Layer* 474) [Constant]_output: 3cb27307
+(Unnamed Layer* 475) [Shuffle]_output: 3cb27307
+onnx::Add_799: 3d35dbe8
+(Unnamed Layer* 477) [Constant]_output: 3c123416
+(Unnamed Layer* 478) [Shuffle]_output: 3c123416
+input.644: 3d2f8144
+input.648: 3e27b0f6
+input.652: 3da81d23
+input.656: 3f41de0b
+input.660: 3feadfeb
+onnx::InstanceNormalization_807: 3feadfeb
+(Unnamed Layer* 485) [Shuffle]_output: 3feadfeb
+(Unnamed Layer* 486) [PluginV2DynamicExt]_output_0: 3de62b2a
+onnx::Reshape_810: 3de62b2a
+onnx::Mul_812: 3de62b2a
+(Unnamed Layer* 490) [Constant]_output: 3cfd1b8c
+(Unnamed Layer* 491) [Shuffle]_output: 3cfd1b8c
+onnx::Add_814: 3d997167
+(Unnamed Layer* 493) [Constant]_output: 3d7a1165
+(Unnamed Layer* 494) [Shuffle]_output: 3d7a1165
+onnx::Slice_816: 3dd7287a
+patches_x.3: 3dd7287a
+patches_z.3: 3e02b775
+onnx::DepthToSpace_836: 3dd7287a
+(Unnamed Layer* 499) [Shuffle]_output: 3dd7287a
+input.664: 3dd7287a
+onnx::DepthToSpace_847: 3e02b775
+(Unnamed Layer* 502) [Shuffle]_output: 3e02b775
+input.668: 3e02b775
+x11: 3d1ed2a5
+z11: 3d3eb7c9
+onnx::Transpose_864: 3d3eb7c9
+onnx::MatMul_865: 3d3eb7c9
+onnx::MatMul_871: 3d1ed2a5
+onnx::Reshape_872: 406ce46d
+input.688: 406ce46d
+input.692: 3f5d8f89
+input.696: 3fe25b7b
+onnx::Conv_882: 3f02ae7a
+onnx::Sigmoid_883: 3ef229cf
+onnx::Mul_884: 3c010a14
+input.700: 4060b733
+feat_fused: 40ce597b
+input.708: 3dbd1d02
+x_cls: 3dbbf08a
+input.716: 3dcebe0d
+x_reg: 3dcd0d1e
+onnx::Reshape_897: 3dbbf08a
+input.720: 3dbbf08a
+onnx::Reshape_908: 3dcd0d1e
+input.724: 3dcd0d1e
+onnx::InstanceNormalization_918: 3dbbf08a
+(Unnamed Layer* 527) [Shuffle]_output: 3dbbf08a
+(Unnamed Layer* 528) [PluginV2DynamicExt]_output_0: 3d57d6d3
+onnx::Reshape_921: 3d57d6d3
+onnx::Mul_923: 3d57d6d3
+(Unnamed Layer* 532) [Constant]_output: 3c14f4cb
+(Unnamed Layer* 533) [Shuffle]_output: 3c14f4cb
+onnx::Add_925: 3d648614
+(Unnamed Layer* 535) [Constant]_output: 3b36afa7
+(Unnamed Layer* 536) [Shuffle]_output: 3b36afa7
+input.728: 3d749396
+tensor.23: 3e326d10
+query.23: 3d88bf9e
+onnx::Mul_930: 3e15b85f
+value.23: 3e6479d9
+(Unnamed Layer* 542) [Shuffle]_output: 3d88bf9e
+(Unnamed Layer* 543) [Softmax]_output: 3a19bc21
+input.732: 3a19bc21
+onnx::ReduceSum_933: 3b1b39f2
+onnx::Expand_934: 3d16157d
+onnx::Mul_935: 3e492c6b
+onnx::Mul_937: 3d16157d
+input.736: 3e5429ee
+input.740: 3ee94d8a
+input.744: 3efe08f0
+onnx::InstanceNormalization_942: 3efe08f0
+(Unnamed Layer* 560) [Shuffle]_output: 3efe08f0
+(Unnamed Layer* 561) [PluginV2DynamicExt]_output_0: 3dfe07da
+onnx::Reshape_945: 3dfe07da
+onnx::Mul_947: 3dfe07da
+(Unnamed Layer* 565) [Constant]_output: 3c183029
+(Unnamed Layer* 566) [Shuffle]_output: 3c183029
+onnx::Add_949: 3dc663bf
+(Unnamed Layer* 568) [Constant]_output: 3b4c5dd6
+(Unnamed Layer* 569) [Shuffle]_output: 3b4c5dd6
+input.748: 3dc99268
+input.752: 3eaaf18e
+input.756: 3e2eec5c
+input.760: 3e37b44a
+input.764: 3f213d92
+onnx::InstanceNormalization_957: 3f213d92
+(Unnamed Layer* 576) [Shuffle]_output: 3f213d92
+(Unnamed Layer* 577) [PluginV2DynamicExt]_output_0: 3e00edf8
+onnx::Reshape_960: 3e00edf8
+onnx::Mul_962: 3e00edf8
+(Unnamed Layer* 581) [Constant]_output: 3c18023c
+(Unnamed Layer* 582) [Shuffle]_output: 3c18023c
+onnx::Add_964: 3dbde879
+(Unnamed Layer* 584) [Constant]_output: 3b82c6bf
+(Unnamed Layer* 585) [Shuffle]_output: 3b82c6bf
+input.768: 3dbba457
+tensor.27: 3e753dea
+query.27: 3e3c1e7e
+onnx::Mul_969: 3e753dea
+value.27: 3e6bf9f4
+(Unnamed Layer* 591) [Shuffle]_output: 3e3c1e7e
+(Unnamed Layer* 592) [Softmax]_output: 3a681291
+input.772: 3a681291
+onnx::ReduceSum_972: 3bdeb391
+onnx::Expand_973: 3d3f1af3
+onnx::Mul_974: 3e3ae71d
+onnx::Mul_976: 3d3f1af3
+input.776: 3df2c06a
+input.780: 3e1c69aa
+input.784: 3f07ac55
+onnx::InstanceNormalization_981: 3f07ac55
+(Unnamed Layer* 609) [Shuffle]_output: 3f07ac55
+(Unnamed Layer* 610) [PluginV2DynamicExt]_output_0: 3de3652b
+onnx::Reshape_984: 3de3652b
+onnx::Mul_986: 3de3652b
+(Unnamed Layer* 614) [Constant]_output: 3c16a481
+(Unnamed Layer* 615) [Shuffle]_output: 3c16a481
+onnx::Add_988: 3dd2a694
+(Unnamed Layer* 617) [Constant]_output: 3b296f10
+(Unnamed Layer* 618) [Shuffle]_output: 3b296f10
+input.788: 3dd0e666
+input.792: 3e9c4217
+input.796: 3e86df3f
+input.800: 3eb9a5e7
+input.804: 3f4e2749
+onnx::InstanceNormalization_996: 3f4e2749
+(Unnamed Layer* 625) [Shuffle]_output: 3f4e2749
+(Unnamed Layer* 626) [PluginV2DynamicExt]_output_0: 3df5fd66
+onnx::Reshape_999: 3df5fd66
+onnx::Mul_1001: 3df5fd66
+(Unnamed Layer* 630) [Constant]_output: 3c339531
+(Unnamed Layer* 631) [Shuffle]_output: 3c339531
+onnx::Add_1003: 3db35f5e
+(Unnamed Layer* 633) [Constant]_output: 3be6cf70
+(Unnamed Layer* 634) [Shuffle]_output: 3be6cf70
+x_cls_patches: 3dc019a6
+onnx::InstanceNormalization_1007: 3dcd0d1e
+(Unnamed Layer* 637) [Shuffle]_output: 3dcd0d1e
+(Unnamed Layer* 638) [PluginV2DynamicExt]_output_0: 3d3ea1a2
+onnx::Reshape_1010: 3d3ea1a2
+onnx::Mul_1012: 3d3ea1a2
+(Unnamed Layer* 642) [Constant]_output: 3bfd3f08
+(Unnamed Layer* 643) [Shuffle]_output: 3bfd3f08
+onnx::Add_1014: 3d387feb
+(Unnamed Layer* 645) [Constant]_output: 3ae558d6
+(Unnamed Layer* 646) [Shuffle]_output: 3ae558d6
+input.808: 3d51e970
+tensor.31: 3dbd636e
+query.31: 3d77a561
+onnx::Mul_1019: 3dacf002
+value.31: 3dd1f41c
+(Unnamed Layer* 652) [Shuffle]_output: 3d77a561
+(Unnamed Layer* 653) [Softmax]_output: 3a30120c
+input.812: 3a30120c
+onnx::ReduceSum_1022: 3aa989ce
+onnx::Expand_1023: 3d0092ff
+onnx::Mul_1024: 3dcc2d70
+onnx::Mul_1026: 3d0092ff
+input.816: 3d7d5d4b
+input.820: 3e6b04ca
+input.824: 3e8e6979
+onnx::InstanceNormalization_1031: 3e8e6979
+(Unnamed Layer* 670) [Shuffle]_output: 3e8e6979
+(Unnamed Layer* 671) [PluginV2DynamicExt]_output_0: 3df15a5c
+onnx::Reshape_1034: 3df15a5c
+onnx::Mul_1036: 3df15a5c
+(Unnamed Layer* 675) [Constant]_output: 3c03c6da
+(Unnamed Layer* 676) [Shuffle]_output: 3c03c6da
+onnx::Add_1038: 3da10f41
+(Unnamed Layer* 678) [Constant]_output: 3b7fd8f1
+(Unnamed Layer* 679) [Shuffle]_output: 3b7fd8f1
+input.828: 3daa8014
+input.832: 3de11a38
+input.836: 3e0e9f64
+input.840: 3dc59b11
+input.844: 3e9f7c97
+onnx::InstanceNormalization_1046: 3e9f7c97
+(Unnamed Layer* 686) [Shuffle]_output: 3e9f7c97
+(Unnamed Layer* 687) [PluginV2DynamicExt]_output_0: 3dd2d3c3
+onnx::Reshape_1049: 3dd2d3c3
+onnx::Mul_1051: 3dd2d3c3
+(Unnamed Layer* 691) [Constant]_output: 3c11d01b
+(Unnamed Layer* 692) [Shuffle]_output: 3c11d01b
+onnx::Add_1053: 3d94919c
+(Unnamed Layer* 694) [Constant]_output: 3b911f13
+(Unnamed Layer* 695) [Shuffle]_output: 3b911f13
+input.848: 3d8a7827
+tensor.35: 3e2e0af2
+query.35: 3e979a49
+onnx::Mul_1058: 3e258692
+value.35: 3e3782ba
+(Unnamed Layer* 701) [Shuffle]_output: 3e979a49
+(Unnamed Layer* 702) [Softmax]_output: 3a0b3a09
+input.852: 3a0b3a09
+onnx::ReduceSum_1061: 3a9d6c3b
+onnx::Expand_1062: 3ca2faf6
+onnx::Mul_1063: 3e107c6b
+onnx::Mul_1065: 3ca2faf6
+input.856: 3d2bae69
+input.860: 3d897c76
+input.864: 3ed1f497
+onnx::InstanceNormalization_1070: 3ed1f497
+(Unnamed Layer* 719) [Shuffle]_output: 3ed1f497
+(Unnamed Layer* 720) [PluginV2DynamicExt]_output_0: 3dcdbad4
+onnx::Reshape_1073: 3dcdbad4
+onnx::Mul_1075: 3dcdbad4
+(Unnamed Layer* 724) [Constant]_output: 3c0ff55f
+(Unnamed Layer* 725) [Shuffle]_output: 3c0ff55f
+onnx::Add_1077: 3dbf38e8
+(Unnamed Layer* 727) [Constant]_output: 3b1d7c7a
+(Unnamed Layer* 728) [Shuffle]_output: 3b1d7c7a
+input.868: 3dc0924d
+input.872: 3e67ec5d
+input.876: 3d4e50c2
+input.880: 3d1287b4
+input.884: 3ed6f5ba
+onnx::InstanceNormalization_1085: 3ed6f5ba
+(Unnamed Layer* 735) [Shuffle]_output: 3ed6f5ba
+(Unnamed Layer* 736) [PluginV2DynamicExt]_output_0: 3dc9abf8
+onnx::Reshape_1088: 3dc9abf8
+onnx::Mul_1090: 3dc9abf8
+(Unnamed Layer* 740) [Constant]_output: 3c104f77
+(Unnamed Layer* 741) [Shuffle]_output: 3c104f77
+onnx::Add_1092: 3d94ea2e
+(Unnamed Layer* 743) [Constant]_output: 3b201486
+(Unnamed Layer* 744) [Shuffle]_output: 3b201486
+input.888: 3d905453
+tensor.39: 3e383111
+query.39: 3e92ff05
+onnx::Mul_1097: 3e26e1c5
+value.39: 3e2ab25d
+(Unnamed Layer* 750) [Shuffle]_output: 3e92ff05
+(Unnamed Layer* 751) [Softmax]_output: 3aa14174
+input.892: 3aa14174
+onnx::ReduceSum_1100: 3b79da83
+onnx::Expand_1101: 3cce4b22
+onnx::Mul_1102: 3e0b99f8
+onnx::Mul_1104: 3cce4b22
+input.896: 3d503914
+input.900: 3d597bcf
+input.904: 3ec5894f
+onnx::InstanceNormalization_1109: 3ec5894f
+(Unnamed Layer* 768) [Shuffle]_output: 3ec5894f
+(Unnamed Layer* 769) [PluginV2DynamicExt]_output_0: 3de9c625
+onnx::Reshape_1112: 3de9c625
+onnx::Mul_1114: 3de9c625
+(Unnamed Layer* 773) [Constant]_output: 3c16c62d
+(Unnamed Layer* 774) [Shuffle]_output: 3c16c62d
+onnx::Add_1116: 3d885dba
+(Unnamed Layer* 776) [Constant]_output: 3b0a578e
+(Unnamed Layer* 777) [Shuffle]_output: 3b0a578e
+input.908: 3d9b2911
+input.912: 3e894c8b
+input.916: 3d836c34
+input.920: 3d15e8d1
+input.924: 3ec7fa9d
+onnx::InstanceNormalization_1124: 3ec7fa9d
+(Unnamed Layer* 784) [Shuffle]_output: 3ec7fa9d
+(Unnamed Layer* 785) [PluginV2DynamicExt]_output_0: 3dcc151a
+onnx::Reshape_1127: 3dcc151a
+onnx::Mul_1129: 3dcc151a
+(Unnamed Layer* 789) [Constant]_output: 3c1a27eb
+(Unnamed Layer* 790) [Shuffle]_output: 3c1a27eb
+onnx::Add_1131: 3d9e1a17
+(Unnamed Layer* 792) [Constant]_output: 3b86cc84
+(Unnamed Layer* 793) [Shuffle]_output: 3b86cc84
+input.928: 3d939b32
+tensor.43: 3e500649
+query.43: 3e9c02a2
+onnx::Mul_1136: 3e37b4a2
+value.43: 3e564929
+(Unnamed Layer* 799) [Shuffle]_output: 3e9c02a2
+(Unnamed Layer* 800) [Softmax]_output: 39d47f96
+input.932: 39d47f96
+onnx::ReduceSum_1139: 3b16675a
+onnx::Expand_1140: 3ced4e0f
+onnx::Mul_1141: 3e020874
+onnx::Mul_1143: 3ced4e0f
+input.936: 3d66754c
+input.940: 3d59b07a
+input.944: 3ec7d088
+onnx::InstanceNormalization_1148: 3ec7d088
+(Unnamed Layer* 817) [Shuffle]_output: 3ec7d088
+(Unnamed Layer* 818) [PluginV2DynamicExt]_output_0: 3dcde105
+onnx::Reshape_1151: 3dcde105
+onnx::Mul_1153: 3dcde105
+(Unnamed Layer* 822) [Constant]_output: 3c1ae653
+(Unnamed Layer* 823) [Shuffle]_output: 3c1ae653
+onnx::Add_1155: 3db08ae1
+(Unnamed Layer* 825) [Constant]_output: 3b2f1864
+(Unnamed Layer* 826) [Shuffle]_output: 3b2f1864
+input.948: 3daf0378
+input.952: 3e75a6e3
+input.956: 3e0fda2c
+input.960: 3daf0100
+input.964: 3ebcbd81
+onnx::InstanceNormalization_1163: 3ebcbd81
+(Unnamed Layer* 833) [Shuffle]_output: 3ebcbd81
+(Unnamed Layer* 834) [PluginV2DynamicExt]_output_0: 3dcdfbe6
+onnx::Reshape_1166: 3dcdfbe6
+onnx::Mul_1168: 3dcdfbe6
+(Unnamed Layer* 838) [Constant]_output: 3c2a281b
+(Unnamed Layer* 839) [Shuffle]_output: 3c2a281b
+onnx::Add_1170: 3db14e52
+(Unnamed Layer* 841) [Constant]_output: 3ba3ccc1
+(Unnamed Layer* 842) [Shuffle]_output: 3ba3ccc1
+x_reg_patches: 3db83f50
+onnx::DepthToSpace_1182: 3dc019a6
+(Unnamed Layer* 845) [Shuffle]_output: 3dc019a6
+input.968: 3dc019a6
+onnx::DepthToSpace_1193: 3db83f50
+(Unnamed Layer* 848) [Shuffle]_output: 3db83f50
+input.972: 3db83f50
+input.980: 3da6c5d7
+onnx::Conv_1197: 3d92d42f
+input.988: 3dabe4f1
+onnx::Conv_1200: 3d8a63a2
+input.996: 3d8c9c73
+onnx::Conv_1203: 3d9b3ac5
+input.1004: 3d9c6642
+onnx::Conv_1206: 3d8b3906
+input.1012: 3d805778
+onnx::Conv_1209: 3d7a497c
+input.1020: 3d3da7e9
+onnx::Conv_1212: 3d3ca013
+offset_map: 3d24e33b
+input.1028: 3d9847bf
+onnx::Conv_1216: 3d8b9b21
+input.1036: 3d523df4
+onnx::Conv_1219: 3d2ae2d4
+input.1044: 3d0f497e
+onnx::Conv_1222: 3d036643
+score_map_ctr: 3de77b04
+onnx::Clip_1224: 3bde8d12
+reg: 3bde8d12
+score_map_size: 3cbd8ad6
+onnx::Clip_1231: 3bf4cae9
+(Unnamed Layer* 874) [Shuffle]_output: 35536b08
+(Unnamed Layer* 875) [Shuffle]_output: 3c0106c7
+(Unnamed Layer* 876) [ElementWise]_output: 3bf4cae9
+size_map: 3bf4cae9
+onnx::ArgMax_1237: 3bde8d12
+(Unnamed Layer* 879) [TopK]_output_1: 3bff914c
+onnx::GatherElements_1269: 3bf4cae9
+onnx::Squeeze_1270: 3bb6c26f
+onnx::GatherElements_1278: 3d24e33b
+onnx::Squeeze_1279: 3c7214b4
+onnx::Slice_1280: 3c7214b4
+onnx::Add_1281: 3e010a14
+onnx::Add_1286: 3c72284d
+onnx::Div_1287: 3de9e282
+(Unnamed Layer* 926) [Shuffle]_output: 3e010a14
+onnx::Concat_1289: 3be9e282
+onnx::Add_1290: 3e010a14
+onnx::Add_1295: 3c193e6e
+onnx::Div_1296: 3de3b99a
+(Unnamed Layer* 932) [Shuffle]_output: 3e010a14
+onnx::Concat_1298: 3be3b99a
+onnx::Concat_1299: 3bb6c26f
+onnx::Reshape_1300: 3be6b99c
+cls: 3be6b99c
