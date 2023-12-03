@@ -104,12 +104,12 @@ class MobileViTv2Track(BaseTracker):
             out_dict = self.network.forward(
                 template=self.z_dict1.to(self.device), search=x_dict.tensors.to(self.device))
 
-        pred_score_map = out_dict['score_map']
+        pred_score_map = out_dict[1]
 
         # add hann windows
         response = self.output_window * pred_score_map
         # response = pred_score_map
-        pred_boxes = self.network.box_head.cal_bbox(response, out_dict['size_map'], out_dict['offset_map'])
+        pred_boxes = self.network.box_head.cal_bbox(response, out_dict[2], out_dict[3])
         pred_boxes = pred_boxes.view(-1, 4)
         # Baseline: Take the mean of all pred boxes as the final result
         pred_box = (pred_boxes.mean(dim=0) * self.params.search_size / resize_factor).tolist()  # (cx, cy, w, h) [0,1]

@@ -66,9 +66,13 @@ class MobileViTv2Track(BaseTracker):
         
         # Read model to OpenVINO Runtime
         model_ov = core.read_model(model=self.ir_network_path, weights=self.ir_weights_path)
+
+        # for device in core.available_devices:
+        #     device_name = core.get_property(device, "FULL_DEVICE_NAME")
+        #     print(f"{device}: {device_name}")
             
-        # Load model on device
-        self.compiled_model = core.compile_model(model=model_ov, device_name="CPU", 
+        # Load model on device and compile
+        self.compiled_model = core.compile_model(model=model_ov, device_name="AUTO", 
                 config={"PERFORMANCE_HINT": "THROUGHPUT", "INFERENCE_PRECISION_HINT": "f32"})
 
     def initialize(self, image, info: dict):
@@ -133,7 +137,7 @@ class MobileViTv2Track(BaseTracker):
         pred_score_map = out_dict[1]
 
         # add hann windows
-        response = self.output_window * pred_score_map
+        response = self.output_window * torch.from_numpy(pred_score_map).to(self.device)
         # response = pred_score_map
         pred_boxes = self.network.box_head.cal_bbox(response, torch.from_numpy(out_dict[2]).to(self.device),
                                                      torch.from_numpy(out_dict[3]).to(self.device))
