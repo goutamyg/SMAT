@@ -48,7 +48,7 @@ The pretrained tracker model can be found [here](https://drive.google.com/drive/
 * Place the [pretrained tracker model](https://drive.google.com/drive/folders/1TindIEwu82IvtozwL4XQFrSnFE2Z6W4y) under `output/checkpoints/` folder 
 * Run
 ```
-python tracking/test.py --tracker_name mobilevitv2_track --tracker_param mobilevitv2_256_128x1_ep300 --dataset got10k_test or trackingnet or lasot --inference_mode pytorch or onnx or openvino
+python tracking/test.py --tracker_name mobilevitv2_track --tracker_param mobilevitv2_256_128x1_ep300 --dataset got10k_test or trackingnet or lasot --inference_mode pytorch or onnx or openvino or tensorrtfp32
 ```
 * Change the `DEVICE` variable between `cuda` and `cpu` in the `--tracker_param` file for GPU and CPU-based inference, respectively  
 * The raw results will be stored under `output/test/` folder
