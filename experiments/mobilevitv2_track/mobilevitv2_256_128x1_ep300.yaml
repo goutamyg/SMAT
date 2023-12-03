@@ -70,7 +70,7 @@ TRAIN:
   WEIGHT_DECAY: 0.0001
   AMP: False # Automatic Mixed Precision Training
 TEST:
-  DEVICE: cuda #{options: cuda, cpu}
+  DEVICE: cpu #{options: cuda, cpu}
   EPOCH: 300
   SEARCH_FACTOR: 4.0
   SEARCH_SIZE: 256
