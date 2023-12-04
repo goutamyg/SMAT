@@ -1,0 +1,46 @@
+# Base image
+FROM ubuntu:latest
+
+# Update Debian packages and install system dependencies
+RUN apt-get update && \
+	apt-get install -y wget bzip2 unzip git gcc && \
+	apt-get install -y libgl1 libglib2.0-0 && \
+    	apt-get clean && \
+	rm -rf /var/lib/apt/lists/*
+
+# Download and install Miniconda
+RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh && \
+    bash miniconda.sh -b -p /opt/conda && \
+    rm miniconda.sh
+
+# Set the environment variable
+ENV PATH /opt/conda/bin:$PATH
+
+# Clone application code from the remote repository on GitHub
+RUN git clone https://github.com/goutamyg/SMAT.git
+
+# Set working directory
+WORKDIR /SMAT
+
+# Create a Conda environment
+RUN conda env create -f smat_pyenv.yml && \
+	conda clean --all
+
+# Set environment variable to include CUDA
+ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64
+
+# Make RUN commands use the new environment:
+SHELL ["conda", "run", "-n", "mobilevit-track", "/bin/bash", "-c"]
+
+# Download pre-trained model weights 
+RUN pip install gdown && \
+	gdown 1uPYrR5dnlPQHzzf6iuQcKdmG8kQ5MEV0 -O output/checkpoints/train/mobilevitv2_track/mobilevitv2_256_128x1_ep300/MobileViTv2_Track_ep0300.pth.tar
+
+# Generate relevant files
+RUN python tracking/create_default_local_file.py --workspace_dir . --data_dir ./data --save_dir ./output
+
+# Initialize conda in bash config fiiles
+RUN conda init bash
+
+# Open bash terminal for interactive session
+ENTRYPOINT ["bash"]
