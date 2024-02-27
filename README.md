@@ -1,4 +1,4 @@
-# [Separable Self and Mixed Attention Transformers for Efficient Object Tracking](https://arxiv.org/abs/2309.03979) [WACV2024] 
+# [Separable Self and Mixed Attention Transformers for Efficient Object Tracking](https://openaccess.thecvf.com/content/WACV2024/papers/Gopal_Separable_Self_and_Mixed_Attention_Transformers_for_Efficient_Object_Tracking_WACV_2024_paper.pdf) [WACV2024] 
 # Official implementation
 ![SMAT_block](assets/SMAT_block.png)
 
@@ -71,13 +71,11 @@ python tracking/video_demo.py --tracker_name mobilevitv2_track --tracker_param m
 If our work is useful for your research, please consider citing:
 
 ```Bibtex
-@InProceedings{Gopal2024Sep,
-  author       = "Goutam Yelluru Gopal and Maria Amer",
-  title        = "Separable Self and Mixed Attention Transformers for Efficient Object Tracking",
-  booktitle    = "IEEE/CVF Winter Conference on Applications of Computer Vision (WACV) ",
-  year         = "2024",
-  pages        = "8",
-  month        = "Jan. 4-8",
-  address      = "Waikoloa, Hawaii",
+@inproceedings{gopal2024separable,
+  title={Separable self and mixed attention transformers for efficient object tracking},
+  author={Gopal, Goutam Yelluru and Amer, Maria A},
+  booktitle={Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision},
+  pages={6708--6717},
+  year={2024}
 }
 ```
