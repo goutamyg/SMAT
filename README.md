@@ -3,6 +3,7 @@
 ![SMAT_block](assets/SMAT_block.png)
 
 ## News
+**`09-04-2024`**: C++ implementation of SMAT is available [here](https://github.com/goutamyg/MVT.cpp)
 
 **`07-09-2023`**: The paper is available on [arXiv](https://arxiv.org/abs/2309.03979) now
 
