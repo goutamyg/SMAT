@@ -247,7 +247,8 @@ class Tracker:
             out = tracker.track(frame)
             state = [int(s) for s in out['target_bbox']]
             output_boxes.append(state)
-
+            
+            """
             # Save the classification response
             video_name = videofilepath.split('/')[-1]
             res_dir_name = os.path.join("vis_cls_response", video_name)
@@ -263,7 +264,8 @@ class Tracker:
                 os.makedirs(res_dir_name)
             f_name = "{}/index_{}".format(res_dir_name, list_imgs[frame_idx-1].split('/')[-1].split('.')[0])
             cv.imwrite("{}.png".format(f_name), out["vis_bbox"])
-
+            """
+            
             # display the tracker bounding box results
             cv.rectangle(frame_disp, (state[0], state[1]), (state[2] + state[0], state[3] + state[1]), (0, 255, 0), 2)
 
@@ -277,7 +279,7 @@ class Tracker:
 
             # Display the resulting frame
             cv.imshow(display_name, frame_disp)
-            key = cv.waitKey(0)
+            key = cv.waitKey(1)
             if key == ord('q'):
                 break
             elif key == ord('r'):
@@ -292,12 +294,14 @@ class Tracker:
                 init_state = [x, y, w, h]
                 tracker.initialize(frame, _build_init_info(init_state))
                 output_boxes.append(init_state)
-
+            
+            """
             # remove the previous files
             attn_dir_name = 'vis_attn_map'
             for f in os.listdir(attn_dir_name):
                 os.remove(os.path.join(attn_dir_name, f))
-
+            """
+            
         # When everything done, release the capture
         if os.path.isfile(videofilepath):
             cap.release()
